@@ -113,6 +113,18 @@ public class GildedRoseTest {
         assertEquals(-1,item.sellIn);
     }
 
+    @Test
+    public void should_return_sellIn_1_quality_0_when_call_updateQuality_given_a_Sulfuras_item_with_sellIn_1_quality_0() {
+        Item item = new Item("Sulfuras, Hand of Ragnaros", 1, 0);
+        Item[] items = {item};
+        GildedRose gildedRose = new GildedRose(items);
+
+        gildedRose.updateQuality();
+
+        assertEquals(0, item.quality);
+        assertEquals(1,item.sellIn);
+    }
+
 
 
 }

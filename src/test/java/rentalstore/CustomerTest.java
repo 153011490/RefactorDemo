@@ -33,6 +33,18 @@ public class CustomerTest {
     }
 
     @Test
+    public void should_return_receipt_with_customer_name_given_rental_list_with_Movie_Regular_with_dayRented_more_than_2(){
+        Movie movie=new Movie("Roma holiday",Movie.REGULAR);
+        Rental rental=new Rental(movie,3);
+        customer.addRental(rental);
+        String result = customer.statement();
+        Assert.assertEquals(result,"Rental Record for Ben\n" +
+                "\tRoma holiday\t3.5\n" +
+                "Amount owed is 3.5\n" +
+                "You earned 1 frequent renter points");
+    }
+
+    @Test
     public void should_return_receipt_with_customer_name_given_rental_list_with_Movie_New_Release(){
         Movie movie=new Movie("Roma holiday",Movie.NEW_RELEASE);
         Rental rental=new Rental(movie,1);
@@ -53,6 +65,18 @@ public class CustomerTest {
         Assert.assertEquals(result,"Rental Record for Ben\n" +
                 "\tRoma holiday\t1.5\n" +
                 "Amount owed is 1.5\n" +
+                "You earned 1 frequent renter points");
+    }
+
+    @Test
+    public void should_return_receipt_with_customer_name_given_rental_list_with_Movie_Children_with_dayRanted_more_than_3(){
+        Movie movie=new Movie("Roma holiday",Movie.CHILDRENS);
+        Rental rental=new Rental(movie,4);
+        customer.addRental(rental);
+        String result = customer.statement();
+        Assert.assertEquals(result,"Rental Record for Ben\n" +
+                "\tRoma holiday\t3.0\n" +
+                "Amount owed is 3.0\n" +
                 "You earned 1 frequent renter points");
     }
 

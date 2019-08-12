@@ -57,6 +57,18 @@ public class CustomerTest {
     }
 
     @Test
+    public void should_return_receipt_with_customer_name_given_rental_list_with_Movie_New_Release_with_dayRented_more_than_1(){
+        Movie movie=new Movie("Roma holiday",Movie.NEW_RELEASE);
+        Rental rental=new Rental(movie,2);
+        customer.addRental(rental);
+        String result = customer.statement();
+        Assert.assertEquals(result,"Rental Record for Ben\n" +
+                "\tRoma holiday\t6.0\n" +
+                "Amount owed is 6.0\n" +
+                "You earned 2 frequent renter points");
+    }
+
+    @Test
     public void should_return_receipt_with_customer_name_given_rental_list_with_Movie_Children(){
         Movie movie=new Movie("Roma holiday",Movie.CHILDRENS);
         Rental rental=new Rental(movie,1);

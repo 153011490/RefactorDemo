@@ -14,6 +14,7 @@ public class Item {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
+        this.itemInterface = ItemInterfaceFactory.createItemInterFace(name);
     }
 
    @Override
@@ -22,19 +23,6 @@ public class Item {
     }
 
     public void updateQuality() {
-        switch (name) {
-            case "Aged Brie":
-                itemInterface = new AgedBrie();
-                break;
-            case "Backstage passes to a TAFKAL80ETC concert":
-                itemInterface = new BackstagePasses();
-                break;
-            case "Sulfuras, Hand of Ragnaros":
-                itemInterface = new Sulfuras();
-                break;
-            default:
-                itemInterface = new NormalItem();
-        }
         itemInterface.update(this);
     }
 

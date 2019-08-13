@@ -35,6 +35,7 @@ public class Item {
             default:
                 itemInterface = new NormalItem();
         }
+        itemInterface.update(this);
     }
 
     public String getName() {

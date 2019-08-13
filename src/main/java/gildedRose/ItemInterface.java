@@ -1,5 +1,5 @@
 package gildedRose;
 
 public interface ItemInterface {
-    void update();
+    void update(Item item);
 }

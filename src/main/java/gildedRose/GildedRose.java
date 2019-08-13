@@ -40,11 +40,11 @@ public class GildedRose {
                             items[i].quality --;
                         }
                     } else {
-                        items[i].quality = items[i].quality - items[i].quality;
+                        items[i].quality = 0;
                     }
                 } else {
                     if (items[i].quality < 50) {
-                        items[i].quality = items[i].quality + 1;
+                        items[i].quality ++;
                     }
                 }
             }
